@@ -27,8 +27,9 @@ def getGitInfo(String infoName) {
   echo "Passed info required is ${infoName}"
   echo "Access token is ${env.GIT_API_TOKEN}"
   urlLink = "${env.GIT_HTTPS}/user/${infoName}"
+  credent = "threedautomation:${env.GIT_API_TOKEN}"
   response = sh (
-    script: 'curl -u "threedautomation:${env.GIT_API_TOKEN}"' + " "+urlLink
+    script: 'curl -u '+" "+credent + " "+urlLink
     )
   return response
 }
