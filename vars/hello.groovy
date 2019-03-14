@@ -22,4 +22,12 @@ withCredentials([usernamePassword(
   return response
   }
 }
+
+def getGitInfo(String infoName) {
+  response = sh (
+    script: 'curl -u "threedautomation:S@njay123" https://api.github.com/user/"${infoName}"'
+    )
+  return response
+}
+    
   
