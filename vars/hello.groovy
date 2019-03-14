@@ -25,7 +25,7 @@ withCredentials([usernamePassword(
 
 def getGitInfo(String infoName) {
   echo "Passed info required is ${infoName}"
-  urlLink = "https://api.github.com/user/${infoName}"
+  urlLink = "${env.GIT_HTTPS}/user/${infoName}"
   response = sh (
     script: 'curl -u "threedautomation:S@njay123"' + " "+urlLink
     )
