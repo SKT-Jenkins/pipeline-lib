@@ -16,7 +16,7 @@ withCredentials([usernamePassword(
     "--data-urlencode \"branch=${targetBranch}\" --data-urlencode \"ref=${sourceBranch}\""
   
   response = sh (
-    script: 'curl --noproxy "*" -X POST --header "PRIVATE-TOKEN: ${GIT_API_TOKEN}" ' + createBranchRequest,
+    script: 'curl --noproxy "*" -X POST --header "PRIVATE-TOKEN: ${GIT_API_TOKEN}" ' + " "+createBranchRequest,
     returnStdout: true
     )
   return response
